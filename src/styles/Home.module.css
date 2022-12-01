@@ -1,0 +1,51 @@
+.layout {
+  background: transparent;
+  padding-inline: 3rem;
+  height: 100vh;
+}
+
+.header {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftMain {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightMain {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightMainImage {
+  max-width: 550px;
+}
+
+.heading {
+  color: #fff !important;
+  line-height: 3.4rem !important;
+}
+
+.footer {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerHeading {
+  font-size: 16px;
+  color: #fff;
+}

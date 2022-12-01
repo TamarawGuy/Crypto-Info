@@ -1,9 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { Menu, Image } from "antd";
+import { Menu } from "antd";
 import styles from "../styles/Navbar.module.css";
+import { useGetCryptoCoinsQuery } from "../services/cryptoApi";
 
 const Navbar = () => {
+  const { data: coinsData, isFetching } = useGetCryptoCoinsQuery(10);
+  console.log(coinsData);
+
+  if (isFetching) return "Loading...";
+
   return (
     <nav className={styles.navContainer}>
       <div className={styles.logoContainer}>
@@ -13,19 +19,18 @@ const Navbar = () => {
           alt="logo"
         />
       </div>
-      <div className={styles.menuContainer}>
-        <Menu theme="dark" mode="horizontal">
-          <Menu.Item>
-            <Link href="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link href="/cryptocurrencies">CryptoCurrencies</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link href="/news">News</Link>
-          </Menu.Item>
-        </Menu>
-      </div>
+
+      <Menu className={styles.menuContainer} mode="horizontal">
+        <Menu.Item className={styles.navLink}>
+          <Link href="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item className={styles.navLink}>
+          <Link href="/cryptocurrencies">CryptoCurrencies</Link>
+        </Menu.Item>
+        <Menu.Item className={styles.navLink}>
+          <Link href="/news">News</Link>
+        </Menu.Item>
+      </Menu>
     </nav>
   );
 };
